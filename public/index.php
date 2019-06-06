@@ -94,7 +94,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		$bin = hex2bin(str_repeat('0', 8 - strlen($code)) . $code);
 	    $emoticon =  mb_convert_encoding($bin, 'UTF-8', 'UTF-32BE');*/
 
-	    $unicodeChar = '0x1F924';
+	    $unicodeChar = '{1F924}';
 		$message = utf8_encode($unicodeChar);
 
 			//$message = "Hallo " . $unicodeChar;
