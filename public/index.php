@@ -43,6 +43,11 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 	foreach ($data['events'] as $event)
 	{
 		$userMessage = $event['message']['text'];
+
+		$thesender = $event['source']['userId'];
+
+
+
 		if(strtolower($userMessage) == 'hallo')
 		{
 			$message = "Hallo Gorilla";
@@ -56,6 +61,16 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 	   if(strtolower($userMessage) == 'afspraak')
 		{
 			$message = "Kun je vanmiddag om 15:00 ?";
+            $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
+			$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
+			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
+		
+		}
+
+
+	   if(strtolower($userMessage) == 'wie')
+		{
+			$message = $thesender;
             $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 			$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
