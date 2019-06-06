@@ -95,7 +95,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 	    $emoticon =  mb_convert_encoding($bin, 'UTF-8', 'UTF-32BE');*/
 
 	    $unicodeChar = '\u1000';
-		//echo json_decode('"'.$unicodeChar.'"');
+		$unicodeChar = json_decode('"'.$unicodeChar.'"');
 
 			$message = "Hallo " . $unicodeChar;
 
