@@ -90,12 +90,8 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 	   if(strtolower($userMessage) == 'emo')
 		{
 
-		/*$code = '100005';
-		$bin = hex2bin(str_repeat('0', 8 - strlen($code)) . $code);
-	    $emoticon =  mb_convert_encoding($bin, 'UTF-8', 'UTF-32BE');*/
-
-	    $unicodeChar = '{1F924}';
-		$message = json_decode('"\ud83d\ude00"');
+	    
+		$message = "Hallo "  . json_decode('"\ud83d\ude00"');
 
 			//$message = "Hallo " . $unicodeChar;
 
