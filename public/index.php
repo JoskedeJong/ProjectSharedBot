@@ -94,7 +94,10 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		$bin = hex2bin(str_repeat('0', 8 - strlen($code)) . $code);
 	    $emoticon =  mb_convert_encoding($bin, 'UTF-8', 'UTF-32BE');*/
 
-			$message = "Hai \ud83d\ude04";
+	    $unicodeChar = '\u1000';
+		//echo json_decode('"'.$unicodeChar.'"');
+
+			$message = "Hallo " . $unicodeChar;
 
             $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 			$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
