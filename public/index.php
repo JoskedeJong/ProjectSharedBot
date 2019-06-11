@@ -52,11 +52,11 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 	   if(strtolower($userMessage) == 'ok2')
 		{
 			$res = file_get_contents("demo.json");
-			$res = utf8_encode($res);
-        	$resultdata = json_decode($res);
+			//$res = utf8_encode($res);
+        	//$resultdata = json_decode($res);
 
 
-		  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\FlexMessageBuilder("Allernatief", $resultdata);
+		  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\FlexMessageBuilder("Allernatief", $res);
 
         	file_put_contents('php://stderr', 'reply data: ' . serialize($textMessageBuilder));
 
