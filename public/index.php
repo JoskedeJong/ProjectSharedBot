@@ -67,7 +67,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
             $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 
 
-            $textout = json_encode($textMessageBuilder);
+            $textout = $textMessageBuilder;
            	file_put_contents('php://stderr', 'reply to LINE server: ' . $textout);
 
 
