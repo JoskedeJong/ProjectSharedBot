@@ -54,7 +54,7 @@ class FlexSampleRestaurant
     private static function createHeroBlock()
     {
         return ImageComponentBuilder::builder()
-            ->setUrl('https://example.com/cafe.png')
+            ->setUrl('https://www.amrathhotelempereur.nl/heading/restaurant_4.jpg')
             ->setSize(ComponentImageSize::FULL)
             ->setAspectRatio(ComponentImageAspectRatio::R20TO13)
             ->setAspectMode(ComponentImageAspectMode::COVER)
@@ -208,15 +208,15 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 
 	   if(strtolower($userMessage) == 'ok2')
 		{
-			
+			/*
 			$res = file_get_contents("demo.json");
 			$res = utf8_encode($res);
         	$res = json_decode($res);
+*/
 
-
-		  $data = new \LINE\LINEBot\MessageBuilder\FlexMessageBuilder("Allernatief", $res);
+		// $data = new \LINE\LINEBot\MessageBuilder\FlexMessageBuilder("Allernatief", $res);
 		  
-	//	  	$data = FlexSampleRestaurant::get();
+		  	$data = FlexSampleRestaurant::get();
 
           file_put_contents('php://stderr', 'reply data: ' . print_r($data, true));
 
