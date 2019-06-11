@@ -53,7 +53,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		{
 			$res = file_get_contents("demo.json");
 			$res = utf8_encode($res);
-        	//$resultdata = json_decode($res);
+        	$res = json_decode($res);
 
 
 		  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\FlexMessageBuilder("Allernatief", $res);
