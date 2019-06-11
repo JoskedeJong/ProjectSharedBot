@@ -54,7 +54,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
             $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 			$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
 
-			file_put_contents('php://stderr', 'reply to LINE server: ' . $textMessageBuilder);
+			file_put_contents('php://stderr', 'reply to LINE server: ' . serialize($textMessageBuilder);
 
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 		
@@ -66,7 +66,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 			$res = file_get_contents("demo.json");
         	$resultdata = json_decode($res);
 
-        	file_put_contents('php://stderr', 'reply data: ' . $resultdata);
+        	file_put_contents('php://stderr', 'reply data: ' . serialize($resultdata));
 
 			var_dump($resultdata);
 
