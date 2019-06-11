@@ -68,11 +68,11 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 
 
 
-        $builder = new \LINE\LINEBot\MessageBuilder\BubbleStylesBuilder(
-            new \LINE\LINEBot\MessageBuilder\BlockStyleBuilder('#00ffff'),
-            new \LINE\LINEBot\MessageBuilder\BlockStyleBuilder(null, true, '#000000'),
-            new \LINE\LINEBot\MessageBuilder\BlockStyleBuilder('#ffffff'),
-            new \LINE\LINEBot\MessageBuilder\BlockStyleBuilder('#00ffff', true, '#000000')
+        $builder = new \LINE\LINEBot\MessageBuilder\Flex\BubbleStylesBuilder(
+            new \LINE\LINEBot\MessageBuilder\Flex\BlockStyleBuilder('#00ffff'),
+            new \LINE\LINEBot\MessageBuilder\Flex\BlockStyleBuilder(null, true, '#000000'),
+            new \LINE\LINEBot\MessageBuilder\Flex\BlockStyleBuilder('#ffffff'),
+            new \LINE\LINEBot\MessageBuilder\Flex\BlockStyleBuilder('#00ffff', true, '#000000')
         );
 
         var_dump($builder);
