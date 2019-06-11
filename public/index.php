@@ -48,18 +48,6 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 
 
 
-		if(strtolower($userMessage) == 'hallo')
-		{
-			$message = "Hallo Gorilla";
-            $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
-			$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
-
-			file_put_contents('php://stderr', 'reply to LINE server: ' . serialize($textMessageBuilder));
-
-			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
-		
-		}
-
 
 	   if(strtolower($userMessage) == 'ok2')
 		{
@@ -68,13 +56,13 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
         	$resultdata = json_decode($res);
 
 
-		  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\FlexMessageBuilder($resultdata);
+		  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\FlexMessageBuilder("Allernatief", $resultdata);
 
         	file_put_contents('php://stderr', 'reply data: ' . serialize($textMessageBuilder));
 
 
-			$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
-			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
+			//$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
+			//return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 		
 		}
 
