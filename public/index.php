@@ -63,14 +63,10 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 
 	   if(strtolower($userMessage) == 'afspraak')
 		{
-			$message = "Helaas dan kan ik niet";
-            $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
-
-
-            $textout = $textMessageBuilder;
-            var_dump($$textout);
-           //	file_put_contents('php://stderr', 'reply to LINE server: ' . $textout);
-
+			//$message = "Helaas dan kan ik niet";
+			$message = file_get_contents("demo.json");
+            $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\RawMessageBuilder($message);
+         
 
 			$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
