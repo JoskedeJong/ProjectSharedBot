@@ -67,11 +67,13 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 			$res = utf8_encode($res);
         	$resultdata = json_decode($res);
 
-        	file_put_contents('php://stderr', 'reply data: ' . serialize($resultdata));
 
-			var_dump($resultdata);
+		  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\FlexMessageBuilder($resultdata);
 
-			$result = $bot->replyMessage($event['replyToken'], $resultdata);
+        	file_put_contents('php://stderr', 'reply data: ' . serialize($textMessageBuilder));
+
+
+			$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 		
 		}
