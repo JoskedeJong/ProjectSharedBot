@@ -208,7 +208,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 
 	   if(strtolower($userMessage) == 'ok2')
 		{
-			/*
+			
 			$res = file_get_contents("demo.json");
 			$res = utf8_encode($res);
         	$res = json_decode($res);
@@ -217,8 +217,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\FlexMessageBuilder("Allernatief", $res);
 		  $data = $textMessageBuilder.build();
 
-*/
-		  	$data = FlexSampleRestaurant::get();
+	//	  	$data = FlexSampleRestaurant::get();
 
           file_put_contents('php://stderr', 'reply data: ' . print_r($data, true));
 
