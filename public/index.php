@@ -53,6 +53,9 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 			$message = "Hallo Gorilla";
             $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 			$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
+
+			file_put_contents('php://stderr', 'reply to LINE server: ' . $textMessageBuilder);
+
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 		
 		}
@@ -62,6 +65,12 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		{
 			$message = "Kun je vanmiddag om 15:00 ?";
             $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
+
+
+            $textout = json_encode($textMessageBuilder);
+           	file_put_contents('php://stderr', 'reply to LINE server: ' . $textout);
+
+
 			$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 		
@@ -76,6 +85,8 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 		
 		}
+
+
 
 
      if(strtolower($userMessage) == 'sticker')
