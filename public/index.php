@@ -214,9 +214,8 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
         	$res = json_decode($res);
 
 
-		  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\FlexMessageBuilder("Allernatief", $res);
-		  $data = $textMessageBuilder.build();
-
+		  $data = new \LINE\LINEBot\MessageBuilder\FlexMessageBuilder("Allernatief", $res);
+		  
 	//	  	$data = FlexSampleRestaurant::get();
 
           file_put_contents('php://stderr', 'reply data: ' . print_r($data, true));
