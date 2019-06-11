@@ -46,7 +46,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 
 		$thesender = $event['source']['userId'];
 
-
+      file_put_contents('php://stderr', " ----- ");
 
 
 	   if(strtolower($userMessage) == 'ok2')
