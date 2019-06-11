@@ -63,27 +63,38 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 
 	   if(strtolower($userMessage) == 'ok2')
 		{
-			//$message = "Helaas dan kan ik niet";
-		//	$message = file_get_contents("demo.json");
-
-
-
-        $builder = new \LINE\LINEBot\MessageBuilder\Flex\BubbleStylesBuilder(
-            new \LINE\LINEBot\MessageBuilder\Flex\BlockStyleBuilder('#00ffff'),
-            new \LINE\LINEBot\MessageBuilder\Flex\BlockStyleBuilder(null, true, '#000000'),
-            new \LINE\LINEBot\MessageBuilder\Flex\BlockStyleBuilder('#ffffff'),
-            new \LINE\LINEBot\MessageBuilder\Flex\BlockStyleBuilder('#00ffff', true, '#000000')
+			
+			  $result = $bot->replyMessage(
+            $event['replyToken'],
+            FlexMessageBuilder::builder()
+                ->setAltText('alt test')
+                ->setContents(
+                    BubbleContainerBuilder::builder()
+                        ->setBody(
+                            BoxComponentBuilder::builder()
+                                ->setLayout(ComponentLayout::VERTICAL)
+                                ->setContents([
+                                    new TextComponentBuilder('Hello,'),
+                                    new TextComponentBuilder('World!')
+                                ])
+                        )
+                )
+                ->setQuickReply(
+                    new QuickReplyMessageBuilder([
+                        new QuickReplyButtonBuilder(
+                            new MessageTemplateActionBuilder('reply1', 'Reply1')
+                        ),
+                        new QuickReplyButtonBuilder(
+                            new MessageTemplateActionBuilder('reply2', 'Reply2')
+                        )
+                    ])
+                )
         );
 
-    
-        $message = $builder->build();
-        
-        		file_put_contents('php://stderr', 'reply to LINE server: ' . serialize($builder));
-         
-          //  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\RawMessageBuilder($message);
+
          
 
-			$result = $bot->replyMessage($event['replyToken'], $builder);
+			//$result = $bot->replyMessage($event['replyToken'], $message);
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 		
 		}
