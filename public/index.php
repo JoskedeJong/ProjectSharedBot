@@ -63,12 +63,12 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 
 	   if(strtolower($userMessage) == 'afspraak')
 		{
-			$message = "Kun je vanmiddag om 15:00 ?";
+			$message = "Helaas dan kan ik niet";
             $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 
 
             $textout = $textMessageBuilder;
-            var_dump($textMessageBuilder);
+            var_dump($$textout);
            //	file_put_contents('php://stderr', 'reply to LINE server: ' . $textout);
 
 
