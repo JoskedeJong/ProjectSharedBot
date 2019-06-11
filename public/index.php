@@ -54,7 +54,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
             $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 			$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
 
-			file_put_contents('php://stderr', 'reply to LINE server: ' . serialize($textMessageBuilder);
+			file_put_contents('php://stderr', 'reply to LINE server: ' . serialize($textMessageBuilder));
 
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 		
