@@ -78,7 +78,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
         var_dump($builder);
 
         $message = $builder->build();
-        var_dump($message);
+        		file_put_contents('php://stderr', 'reply to LINE server: ' . $message);
          
           //  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\RawMessageBuilder($message);
          
