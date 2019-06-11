@@ -52,7 +52,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 	   if(strtolower($userMessage) == 'ok2')
 		{
 			$res = file_get_contents("demo.json");
-			//$res = utf8_encode($res);
+			$res = utf8_encode($res);
         	//$resultdata = json_decode($res);
 
 
