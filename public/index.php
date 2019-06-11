@@ -61,8 +61,8 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
         	file_put_contents('php://stderr', 'reply data: ' . serialize($textMessageBuilder));
 
 
-			//$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
-			//return $result->getHTTPStatus() . ' ' . $result->getRawBody();
+			$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
+			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 		
 		}
 
