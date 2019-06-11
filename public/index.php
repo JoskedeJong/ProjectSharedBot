@@ -68,7 +68,8 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 
 
             $textout = $textMessageBuilder;
-           	file_put_contents('php://stderr', 'reply to LINE server: ' . $textout);
+            var_dump($textMessageBuilder);
+           //	file_put_contents('php://stderr', 'reply to LINE server: ' . $textout);
 
 
 			$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
