@@ -67,11 +67,43 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 			$message = file_get_contents("demo.json");
 			$message = json_encode($message);
 			var_dump($message);
-          
-            $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\RawMessageBuilder($message);
+
+
+
+     $json = <<<JSON
+{
+  "header":{
+    "backgroundColor":"#00ffff"
+  },
+  "hero":{
+    "separator": true,
+    "separatorColor": "#000000"
+  },
+  "body":{
+    "backgroundColor":"#ffffff"
+  },
+  "footer":{
+    "backgroundColor": "#00ffff",
+    "separator": true,
+    "separatorColor": "#000000"
+  }
+}
+JSON;
+        $builder = new \LINE\LINEBot\MessageBuilder\BubbleStylesBuilder(
+            new \LINE\LINEBot\MessageBuilder\BlockStyleBuilder('#00ffff'),
+            new \LINE\LINEBot\MessageBuilder\BlockStyleBuilder(null, true, '#000000'),
+            new \LINE\LINEBot\MessageBuilder\BlockStyleBuilder('#ffffff'),
+            new \LINE\LINEBot\MessageBuilder\BlockStyleBuilder('#00ffff', true, '#000000')
+        );
+
+
+        $message = $builder->build();
+
+         
+          //  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\RawMessageBuilder($message);
          
 
-			$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
+			$result = $bot->replyMessage($event['replyToken'], $message);
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 		
 		}
