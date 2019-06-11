@@ -75,10 +75,10 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
             new \LINE\LINEBot\MessageBuilder\Flex\BlockStyleBuilder('#00ffff', true, '#000000')
         );
 
-        var_dump($builder);
-
+    
         $message = $builder->build();
-        		file_put_contents('php://stderr', 'reply to LINE server: ' . $message);
+        var_dump($message);
+        		file_put_contents('php://stderr', 'reply to LINE server: ' . serialize($message));
          
           //  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\RawMessageBuilder($message);
          
