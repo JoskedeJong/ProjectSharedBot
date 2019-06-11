@@ -61,10 +61,11 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		}
 
 
-	   if(strtolower($userMessage) == 'afspraak')
+	   if(strtolower($userMessage) == 'nee')
 		{
 			//$message = "Helaas dan kan ik niet";
 			$message = file_get_contents("demo.json");
+			$message = json_encode($message);
             $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\RawMessageBuilder($message);
          
 
