@@ -58,7 +58,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 
 		  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\FlexMessageBuilder("Allernatief", $res);
 
-        	file_put_contents('php://stderr', 'reply data: ' . serialize($textMessageBuilder));
+          file_put_contents('php://stderr', 'reply data: ' . print_r($textMessageBuilder, true));
 
 
 			$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
