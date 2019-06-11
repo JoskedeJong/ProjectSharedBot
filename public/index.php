@@ -63,38 +63,14 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 
 	   if(strtolower($userMessage) == 'ok2')
 		{
-			
-			  $result = $bot->replyMessage(
-            $event['replyToken'],
-            FlexMessageBuilder::builder()
-                ->setAltText('alt test')
-                ->setContents(
-                    BubbleContainerBuilder::builder()
-                        ->setBody(
-                            BoxComponentBuilder::builder()
-                                ->setLayout(ComponentLayout::VERTICAL)
-                                ->setContents([
-                                    new TextComponentBuilder('Hello,'),
-                                    new TextComponentBuilder('World!')
-                                ])
-                        )
-                )
-                ->setQuickReply(
-                    new QuickReplyMessageBuilder([
-                        new QuickReplyButtonBuilder(
-                            new MessageTemplateActionBuilder('reply1', 'Reply1')
-                        ),
-                        new QuickReplyButtonBuilder(
-                            new MessageTemplateActionBuilder('reply2', 'Reply2')
-                        )
-                    ])
-                )
-        );
+			$res = file_get_contents("demo.json");
+        	$resultdata = json_decode($res);
 
+        	file_put_contents('php://stderr', 'reply data: ' . $resultdata);
 
-         
+			var_dump($resultdata);
 
-			//$result = $bot->replyMessage($event['replyToken'], $message);
+			$result = $bot->replyMessage($event['replyToken'], $resultdata);
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 		
 		}
