@@ -77,13 +77,13 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 
     
         $message = $builder->build();
-        var_dump($message);
-        		file_put_contents('php://stderr', 'reply to LINE server: ' . serialize($message));
+        
+        		file_put_contents('php://stderr', 'reply to LINE server: ' . serialize($builder));
          
           //  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\RawMessageBuilder($message);
          
 
-			$result = $bot->replyMessage($event['replyToken'], $message);
+			$result = $bot->replyMessage($event['replyToken'], $builder);
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 		
 		}
